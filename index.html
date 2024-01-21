@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Search</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #fff;
+      text-align: center;
+      margin: 20px;
+    }
+
+    #search-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    #search-box {
+      width: 400px;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 30px;
+      width: 600px;
+    }
+
+    #search-button {
+      background-color: #4285f4;
+      color: #fff;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      border-radius: 30px;
+      height: 80px;
+      width: 200px;
+    }
+
+    #search-results {
+      font-size: 20px;
+      font-weight: bold;
+      color: #4285f4;
+    }
+
+    #hiddenDiv {
+      display: none;
+      background-color: #f0f0f0;
+      padding: 20px;
+      margin-top: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+    #container {
+      position: relative;
+    }
+    .button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: blue;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <img style="height: 300px; width: 500px; border-radius: 50px;"
+    src="png-transparent-google-logo-google-search-google-play-google-text-logo-number.png">
+  <br><br><br>
+  <div id="search-container">
+    <input type="text" id="search-box" placeholder="Search...">
+    <button id="search-button" onclick="search()">Google Search</button>
+  </div>
+
+  <div id="search-results"></div><br><br><br>
+  <h1 id="lok" style="font-size: 20px;"></h1>
+  <div id="container">
+  <center><button onclick="teleport()" class="button" id="bts" style="border-radius: 50px; width: 100px; height: 50px; background-color: blue; color: white; display: none;">Tap
+      to Open!</button>
+    <img id="btn" style="height: 200px; width: 200px; border-radius: 50px; display: none;" src="download.jpeg">
+  </center></div>
+  <div id="hiddenDiv">
+
+  </div>
+
+  <script>
+    function teleport(){
+      window.location="teleport.html";
+    }
+
+    function search() {
+      var div = document.getElementById('hiddenDiv');
+      var bu = document.getElementById('btn');
+      var bs = document.getElementById('bts');
+      if (div.style.display === 'none') {
+        div.style.display = 'block';
+        div.classList.add('open');
+      } else {
+        div.style.display = 'none';
+        div.classList.remove('open');
+      }
+      var searchBox = document.getElementById('search-box');
+      var searchResults = document.getElementById('search-results');
+
+      // Display "hello" when a search query is entered
+      searchResults.textContent = 'Hello, you searched for: ' + searchBox.value;
+      document.getElementById('lok').innerHTML = 'Wait but, all I know is that the best parents in the world are Nand Kumar and Amita Soni, they are the best, Happy Anniversary Mom and Dad!!';
+      if (bu.style.display === 'none') {
+        bu.style.display = 'block';
+        bu.classList.add('open');
+      } else {
+        bu.style.display = 'none';
+        bu.classList.remove('open');
+      }
+      if (bs.style.display === 'none') {
+        bs.style.display = 'block';
+        bs.classList.add('open');
+      } else {
+        bs.style.display = 'none';
+        bs.classList.remove('open');
+      }
+
+      // Scroll to the bottom of the page
+      document.body.scrollIntoView({
+        behavior: 'smooth',
+        block: 'end'
+      });
+    }
+  </script>
+
+</body>
+
+</html>

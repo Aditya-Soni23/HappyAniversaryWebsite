@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gift</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #000;
+      margin: 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      position: relative;
+    }
+
+    #tree-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('dark-cherry-blossom-3ygh64js6nbzos6q.jpg');
+      z-index: 1;
+    }
+
+    #falling-leaves {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .leaf {
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 20px solid;
+      border-image: linear-gradient(to left, #0527c0, #00ff22);
+      border-image-slice: 1;
+      opacity: 0.7;
+      animation: fallAnimation 8s linear infinite;
+    }
+
+    @keyframes fallAnimation {
+      to {
+        transform: translateY(100vh) rotate(720deg);
+      }
+    }
+
+    #overlay-div {
+      position: absolute;
+      top: 85%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: black;
+      padding: 20px;
+      color: white;
+      border-radius: 10px;
+      text-align: center;
+      width: 350px;
+      height: 100px;
+    }
+
+    #image-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+    }
+  </style>
+</head>
+
+<body onload="plzplay()">
+  <div id="tree-container">
+    <audio id="play" src="qqqq.mp3"></audio>
+    <center>
+      <img id="image-container" src="imggg.jpg" style="height: 600px; width: 450px; border-radius: 50px; margin-top: 70px;">
+      <div id="overlay-div"><h1 style="color: white; font-size: 18px;">Happy Aniversary Mom and Dad! -Adi<br><br><button onclick="print()" style="border-radius: 30px; background-color: blue; color: white; height: 50px; width: 150px;">Click to Print out this image!</button></h1></div>
+    </center>
+  </div>
+  <div id="falling-leaves"></div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var leavesContainer = document.getElementById('falling-leaves');
+
+      // Generate falling leaves dynamically
+      for (let i = 0; i < 30; i++) {
+        createLeaf();
+      }
+
+      function createLeaf() {
+        var leaf = document.createElement('div');
+        leaf.classList.add('leaf');
+        leaf.style.left = Math.random() * 100 + 'vw';
+        leaf.style.animationDuration = (Math.random() * 2 + 4) + 's';
+        leavesContainer.appendChild(leaf);
+      }
+    });
+    function print(){
+        window.location="print.html";
+    }
+    function plzplay(){
+    document.getElementById("play").play();
+   // song.play();
+}
+  </script>
+</body>
+
+</html>
